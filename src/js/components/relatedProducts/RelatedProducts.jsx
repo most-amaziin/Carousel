@@ -22,11 +22,13 @@ export default class RelatedProducts extends Component {
   //request data upon mounting
   componentDidMount(){
     window.addEventListener('updateProdId', this.getProductsFromAPI.bind(this));
+    console.log('Initializing.');
     this.getProductsFromAPI();
   }
 
   getProductsFromAPI(){
-    $.get('http://ec2-18-219-207-105.us-east-2.compute.amazonaws.com/api/products', (data) => {
+    $.get('http://localhost:4444/api/products', (data) => {
+      console.log('GOT DATA!: ', data);
       this.setState({
         entries: data, 
         mountStatus: true

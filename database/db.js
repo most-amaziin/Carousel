@@ -4,7 +4,7 @@ const selectAll = (cb) => {
   const queryString = 'SELECT * FROM products;';
   db.query(queryString, (err, theGoods) => {
     if (err){
-      console.log(`I'll be monkey food if I don't leave!`);
+      console.error(`Error querying all products from DB.`);
       cb(err);
       db.end();
     } else {
@@ -15,10 +15,10 @@ const selectAll = (cb) => {
 };
 
 const getFifteenEntries = (cb) => {
-  const queryString = `select * from products order by random() limit 15;`
+  const queryString = `select * from products limit 15;`
   db.query(queryString, (err, theGoods) => {
     if (err){
-      console.log(`I'll be monkey food if I don't leave!`);
+      console.error('Error querying top fifteen from database.', err);
       cb(err);
     } else {
       cb(theGoods.rows);
