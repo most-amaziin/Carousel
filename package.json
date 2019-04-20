@@ -23,6 +23,7 @@
   "homepage": "https://github.com/threetexansandacanadian/relatedProducts#readme",
   "dependencies": {
     "artillery": "^1.6.0-27",
+    "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "css-loader": "^2.1.1",
     "dotenv": "^7.0.0",
