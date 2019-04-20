@@ -15,12 +15,15 @@ const selectAll = (cb) => {
 };
 
 const getFifteenEntries = (cb) => {
-  const queryString = `select * from products limit 15;`
+  const startIndex = 9000000 + Math.floor(Math.random() * 999980);
+  const queryString = `select * from products where id >= ${startIndex} and id <= ${startIndex + 15};`
+  const startTime = Date.now();
   db.query(queryString, (err, theGoods) => {
     if (err){
       console.error('Error querying top fifteen from database.', err);
       cb(err);
     } else {
+      console.log(`Select 15 Query Finished. Execution time: ${(Date.now() - startTime) / 1000} seconds.`)
       cb(theGoods.rows);
     }
   })
