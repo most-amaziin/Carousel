@@ -23,17 +23,35 @@ app.post('/api/products', (req, res) => {
   //const queryString = `INSERT INTO products (productname, productpic, productprice, producttype) VALUES ('${name}', '${url}', ${price}, ${type});`;
   console.log('Received request for', req.body)
   let product = { name, price, type } = req.body;
-  if (!product.name || product.name.length > 6 || !product.price || !product.type) {
-    res.status(400);
-    res.end('Improper parameters.');
-  }
-  else {
-    db.postProduct(product, (err, data) => {
-      res.status(201);
-      res.end();
-    })
+
+  db.postProduct(product, (err, data) => {
+    res.status(201);
     res.end();
-  }
+  })
+  res.end();
+})
+
+app.delete('/api/products', (req, res) => {
+  //delete function takes in a productid parameter
+  let { productid } = req.headers;
+
+  db.deleteProduct(productid, (err, data) => {
+    if (!err){
+      console.log(`${productid} deleted.`);
+    }
+    res.end();
+  });
+})
+
+app.put('/api/products', (req, res) => {
+  let { productid, productprice } = req.headers;
+
+  db.updatePrice({ productid, productprice}, (err, data) => {
+    if (!err){
+      console.log(`${productid} price updated to ${productprice}`);
+    }
+    res.end();
+  })
 })
 
 app.listen(PORT, () => {
