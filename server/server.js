@@ -26,10 +26,10 @@ app.post('/api/products', (req, res) => {
   let product = { name, price, type } = req.body;
 
   db.postProduct(product, (err, data) => {
+    console.log('Product posted: ', product);
     res.status(201);
     res.end();
   })
-  res.end();
 })
 
 app.delete('/api/products', (req, res) => {

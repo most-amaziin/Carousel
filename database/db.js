@@ -55,7 +55,6 @@ const postProduct = (product, cb) => {
   let { name, price, type} = product;
   let url = 'https://s3.amazonaws.com/fecphotogallery2019/photos/48_3.jpg';
   const queryString = `INSERT INTO products (productname, productpic, productprice, producttype) VALUES ('${name}', '${url}', ${price}, '${type}');`;
-  console.log('Query: ', queryString);
   db.query(queryString, (err, theGoods) => {
     if (err) {
       console.error('Error in POST query. ', err);
