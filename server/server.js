@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = 4444;
-const db = require('../database/db.js');
+//const db = require('../database/db.js');
+const db = require('../database/db_mongo');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
