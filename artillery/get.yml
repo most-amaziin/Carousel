@@ -1,0 +1,11 @@
+config:
+  target: 'http://localhost:4444/api/products'
+  phases:
+    - duration: 30
+      arrivalRate: 10
+scenarios:
+    - flow:
+        - loop:
+            - get:
+                url: "/"
+          count: 100

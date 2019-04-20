@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:4444/api/products'
+  phases:
+    - duration: 30
+      arrivalRate: 10
+scenarios:
+    - flow:
+        - loop:
+            - post:
+                url: "/"
+                json:
+                  name: 'Hello'
+                  price: 2
+                  type: 'Canadian'
+          count: 100
