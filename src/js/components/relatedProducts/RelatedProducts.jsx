@@ -27,7 +27,7 @@ export default class RelatedProducts extends Component {
   }
 
   getProductsFromAPI(){
-    $.get('http://localhost:4444/api/products', (data) => {
+    $.get('http://ec2-54-172-77-159.compute-1.amazonaws.com:4444/api/products', (data) => {
       console.log('GOT DATA!: ', data);
       this.setState({
         entries: data, 
