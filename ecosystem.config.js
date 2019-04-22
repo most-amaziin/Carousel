@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'SDC',
+    name: 'Carousel',
     script: './server/server.js'
   }],
   deploy: {
