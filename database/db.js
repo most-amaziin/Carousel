@@ -23,7 +23,6 @@ const getFifteenEntries = (cb) => {
       console.error('Error querying top fifteen from database.', err);
       cb(err);
     } else {
-      console.log(`Select 15 Query Finished. Execution time: ${(Date.now() - startTime) / 1000} seconds.`)
       cb(theGoods.rows);
     }
   })
@@ -31,6 +30,7 @@ const getFifteenEntries = (cb) => {
 
 const updatePrice = (updateObj, cb) => {
   let { productid, productprice } = updateObj;
+  // console.log('Received request for: , ', productid, productprice);
   const queryString = `UPDATE PRODUCTS SET productprice = ${productprice} WHERE id=${productid}`;
   db.query(queryString , (err, theGoods) => {
     if (err) {

@@ -1,0 +1,14 @@
+config:
+  target: 'http://localhost:4444'
+  phases:
+    - duration: 30
+      arrivalRate: 10
+scenarios:
+    - flow:
+        - loop:
+            - put:
+                url: "/api/products"
+                headers:
+                  productid: 88
+                  productprice: 44
+          count: 100
