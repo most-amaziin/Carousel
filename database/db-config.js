@@ -12,9 +12,9 @@ const client = new Client(config);
 
 client.connect((err) => {
   if (err) {
-    console.error('connection error', err);
+    console.error('Failure connecting to the database: ', err);
   } else {
-    console.log('DB connection establish!');
+    console.log('Successfully connected to the database.');
   }
 });
 
